@@ -11,6 +11,7 @@ const connection_url =
 
 //Middleware
 app.use(express.json());
+app.use(Cors());
 
 //DB config
 mongoose.connect(connection_url, {
@@ -20,19 +21,23 @@ mongoose.connect(connection_url, {
 //API Endpoints
 app.get("/", (req, res) => res.status(200).send("Hello World"));
 
-app.post("/engage/cards", (req, res) => {
-  const dbCard = req.body;
-  Cards.create(dbCard, (err, data) => {
-    if (err) res.status(500).send(err);
-    else res.status(201).send(data);
-  });
+app.post("/engage/cards", async (req, res) => {
+  try {
+    const dbCard = req.body;
+    const data = await Cards.create(dbCard);
+    res.status(201).send(data);
+  } catch (err) {
+    res.status(500).send(err);
+  }
 });
 
-app.get("/engage/cards", (req, res) => {
-  Cards.find((err, data) => {
-    if (err) res.status(500).send(err);
-    else res.status(200).send(data);
-  });
+app.get("/engage/cards", async (req, res) => {
+  try {
+    const data = await Cards.find().exec();
+    res.status(200).send(data);
+  } catch (err) {
+    res.status(500).send(err);
+  }
 });
 //Listener
 app.listen(port, () => console.log(`Listening on localhost:${port}`));
