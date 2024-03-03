@@ -6,8 +6,10 @@ import Cors from "cors";
 //App config m69Rk1A7c2udBc7j
 const app = express();
 const port = process.env.PORT || 8001;
+const password = encodeURIComponent(process.env.MONGO_PASSWORD.trial());
 const connection_url =
-  "mongodb+srv://admin:m69Rk1A7c2udBc7j@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  // "mongodb+srv://admin:m69Rk1A7c2udBc7j@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://admin:${password}@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 //Middleware
 app.use(express.json());
