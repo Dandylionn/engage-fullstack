@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(Cors());
 
 ///DB config - original
-// console.log("Connection URL:", connection_url);
+console.log("Connection URL:", connection_url);
 // mongoose.connect(connection_url, {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
