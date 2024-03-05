@@ -21,12 +21,30 @@ const connection_url =
 app.use(express.json());
 app.use(Cors());
 
+//DB config - original
+// console.log("Connection URL:", connection_url);
+// mongoose.connect(connection_url, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
 //DB config
-console.log("Connection URL:", connection_url);
-mongoose.connect(connection_url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// Async function to connect to MongoDB
+const connectToDatabase = async () => {
+  try {
+    await mongoose.connect(connection_url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  }
+};
+
+// Call the async function to connect to MongoDB
+connectToDatabase();
+
 //API Endpoints
 app.get("/", (req, res) => res.status(200).send("Hello World"));
 
