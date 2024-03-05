@@ -8,7 +8,7 @@ const app = express();
 const port = 4000;
 // process.env.PORT ||
 
-const password = encodeURIComponent(process.env.MONGO_PASSWORD.trial());
+const password = encodeURIComponent(process.env.MONGO_PASSWORD);
 const connection_url =
   // "mongodb+srv://admin:m69Rk1A7c2udBc7j@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
   "mongodb+srv://admin:${password}@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
