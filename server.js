@@ -13,9 +13,7 @@ const password = encodeURIComponent(process.env.MONGO_PASSWORD);
 
 // const connection_url = `mongodb+srv://admin:${password}@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 // const connection_url =
-//   "mongodb+srv://admin:" +
-//   password +
-//   "@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+//   "mongodb+srv://admin:" + password + "@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 // const connection_url =
 //   "mongodb+srv://admin:m69Rk1A7c2udBc7j@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -27,7 +25,9 @@ const password = encodeURIComponent(process.env.MONGO_PASSWORD);
 const connection_url =
   process.env.NODE_ENV === "production"
     ? baseConnectionUrl
-    : `mongodb+srv://admin:${password}@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+    : `mongodb+srv://admin:` +
+      password +
+      `@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 //Middleware
 app.use(express.json());
