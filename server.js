@@ -5,9 +5,9 @@ import Cors from "cors";
 
 //App config m69Rk1A7c2udBc7j
 const app = express();
-const port =
-  // process.env.PORT ||
-  4000;
+const port = 4000;
+// process.env.PORT ||
+
 const password = encodeURIComponent(process.env.MONGO_PASSWORD.trial());
 const connection_url =
   // "mongodb+srv://admin:m69Rk1A7c2udBc7j@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
