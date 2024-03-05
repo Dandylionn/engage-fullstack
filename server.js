@@ -12,7 +12,7 @@ console.log("MONGO_PASSWORD:", process.env.MONGO_PASSWORD);
 const password = encodeURIComponent(process.env.MONGO_PASSWORD);
 const connection_url =
   // "mongodb+srv://admin:m69Rk1A7c2udBc7j@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-  "mongodb+srv://admin:${password}@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://admin:'${password}'@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 //Middleware
 app.use(express.json());
