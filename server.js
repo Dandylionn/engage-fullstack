@@ -24,10 +24,10 @@ const password = encodeURIComponent(process.env.MONGO_PASSWORD);
 // Construct the final connection URL based on the environment
 const connection_url =
   process.env.NODE_ENV === "production"
-    ? baseConnectionUrl
-    : `mongodb+srv://admin:` +
+    ? "mongodb+srv://admin:" +
       password +
-      `@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+      "@cluster0.esauzrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    : baseConnectionUrl;
 
 //Middleware
 app.use(express.json());
