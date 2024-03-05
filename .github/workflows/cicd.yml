@@ -24,4 +24,6 @@ jobs:
       - name: Pull image from dockerhub
         run: docker pull dandylionn/engage-backend:latest
       - name: Run Docker Container
-        run: docker run -d -p 8001:8001 --name backend-app-container -e MONGO_PASSWORD='${{ secrets.MONGO_PASSWORD}}' dandylionn/engage-backend:latest
+        run: docker stop backend-app-container
+        run: docker rm backend-app-container
+        run: docker run -d -p 4000:4000 --name backend-app-container -e MONGO_PASSWORD='${{ secrets.MONGO_PASSWORD}}' dandylionn/engage-backend:latest
