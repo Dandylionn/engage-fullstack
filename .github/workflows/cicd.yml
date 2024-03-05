@@ -24,8 +24,6 @@ jobs:
       - name: Pull image from dockerhub
         run: docker pull dandylionn/engage-backend:latest
         - name: Stop and Remove Existing Container
-        run: |
-          docker stop backend-app-container || true
-          docker rm backend-app-container || true 
+        run: docker stop backend-app-container && docker rm backend-app-container 
       - name: Run Docker Container
         run: docker restart backend-app-container && docker run -d -p 4000:4000 --name backend-app-container -e MONGO_PASSWORD='${{ secrets.MONGO_PASSWORD}}' dandylionn/engage-backend:latest
