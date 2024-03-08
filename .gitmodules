@@ -1,0 +1,6 @@
+[submodule "engage-backend"]
+	path = engage-backend
+	url = https://github.com/Dandylionn/engage-backend.git
+[submodule "engage-frontend"]
+	path = engage-frontend
+	url = https://github.com/Dandylionn/engage-frontend.git
